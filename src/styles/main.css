@@ -1,0 +1,712 @@
+/* ====================================================
+   MTG Ability - Stili globali
+   Tema: pergamena scura con accenti dorati
+   ==================================================== */
+
+:root {
+  --bg-deep: #1a0f0a;
+  --bg-card: #251812;
+  --bg-card-hover: #2d1e16;
+  --bg-elevated: #2a1a12;
+  --accent: #d4a574;
+  --accent-bright: #f0c896;
+  --accent-dim: #8a6a4a;
+  --text-main: #ebe0d0;
+  --text-dim: #a89580;
+  --text-faint: #6b5d4e;
+  --border: #3d2818;
+  --border-strong: #5a3d28;
+  --border-glow: rgba(212, 165, 116, 0.3);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at top, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(155, 123, 199, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Override Bootstrap container - mantengo solo padding/centering */
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ============ LAYOUT GLOBALE ============ */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px 0 40px;
+}
+
+/* ============ HEADER ============ */
+.app-header {
+  padding: 28px 0 16px;
+  text-align: center;
+  position: relative;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--accent);
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+}
+
+.brand:hover, .brand:focus {
+  color: var(--accent-bright);
+}
+
+.brand-mark {
+  color: var(--accent-dim);
+  font-size: 0.6em;
+}
+
+.brand-text {
+  white-space: nowrap;
+}
+
+.brand-subtitle {
+  margin: 6px 0 0;
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+/* ============ NAV ============ */
+.app-nav {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav-scroll {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 16px;
+}
+
+.nav-scroll::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+  background: rgba(212, 165, 116, 0.08);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: var(--bg-deep);
+  font-weight: 700;
+  border-color: var(--accent);
+}
+
+/* ============ HOME ============ */
+.home-page {
+  padding: 16px 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 24px 0 40px;
+  position: relative;
+}
+
+.hero::before, .hero::after {
+  content: '✦';
+  display: block;
+  color: var(--accent-dim);
+  font-size: 1rem;
+  margin: 16px 0;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  letter-spacing: 0.06em;
+  color: var(--accent-bright);
+  margin: 0 0 16px;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto 18px;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.hero-stat {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.hero-stat strong {
+  color: var(--accent);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ============ GRIGLIA CATEGORIE ============ */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 600px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.cat-card {
+  display: block;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.cat-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--cat-color, var(--accent));
+}
+
+.cat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color, var(--accent-dim));
+  background: var(--bg-card-hover);
+}
+
+.cat-card:active { transform: scale(0.99); }
+
+.cat-card-all {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+  border-color: var(--accent-dim);
+}
+
+.cat-card-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-bright);
+  margin: 0 0 8px;
+}
+
+.cat-card-desc {
+  color: var(--text-dim);
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.cat-card-count {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ============ LEGENDA HOME ============ */
+.legend {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.legend-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.legend-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-main);
+}
+
+.legend-list li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* ============ PAGE HEADER (categoria / all) ============ */
+.page-header {
+  padding: 12px 0 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 60px;
+  height: 2px;
+  background: var(--cat-color, var(--accent));
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  letter-spacing: 0.06em;
+  color: var(--accent-bright);
+  margin: 0 0 8px;
+}
+
+.page-desc {
+  color: var(--text-dim);
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.page-count {
+  color: var(--accent);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ============ FILTRI A PILLOLA (pagina Tutte) ============ */
+.cat-filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cat-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.cat-pill:hover {
+  border-color: var(--cat-color);
+  color: var(--cat-color);
+}
+
+.cat-pill.active {
+  background: var(--cat-color);
+  color: var(--bg-deep);
+  border-color: var(--cat-color);
+  font-weight: 700;
+}
+
+/* ============ RICERCA ============ */
+.search-wrap {
+  position: sticky;
+  top: 56px;
+  z-index: 50;
+  background: linear-gradient(180deg, var(--bg-deep) 70%, transparent);
+  padding: 12px 0 16px;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.search-box {
+  position: relative;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 13px 44px 13px 44px;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--border-glow);
+}
+
+.search-input::placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-dim);
+  pointer-events: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+.search-clear:hover { color: var(--accent); }
+
+.result-count {
+  margin: 8px 0 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ============ GRIGLIA ABILITÀ ============ */
+.ability-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+@media (min-width: 600px) {
+  .ability-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .ability-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1400px) {
+  .ability-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Galaxy Z Fold aperto: 2 colonne */
+@media (min-width: 700px) and (max-width: 900px) {
+  .ability-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============ CARD ABILITÀ ============ */
+.ability-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 18px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.ability-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cat-color, var(--accent));
+}
+
+.ability-card:hover {
+  border-color: var(--cat-color, var(--accent-dim));
+  background: var(--bg-card-hover);
+}
+
+.ability-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.ability-name-en {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-bright);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ability-name-it {
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.ability-desc {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.ability-cat-tag {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cat-color, var(--accent-dim));
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+/* ============ STATO VUOTO ============ */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: var(--accent-dim);
+  margin: 0 0 12px;
+  opacity: 0.4;
+}
+
+/* ============ ERROR PAGE ============ */
+.error-page {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-page h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.back-link:hover { color: var(--accent-bright); }
+
+/* ============ FOOTER ============ */
+.app-footer {
+  padding: 30px 0 20px;
+  text-align: center;
+  color: var(--text-faint);
+  border-top: 1px solid var(--border);
+  margin-top: 30px;
+}
+
+.app-footer p {
+  margin: 4px 0;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ============ INDICATORE OFFLINE ============ */
+.offline-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 200;
+  box-shadow: var(--shadow-elevated);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.offline-indicator.is-online {
+  border-color: #7ab07a;
+  color: #7ab07a;
+}
+
+.offline-indicator.is-offline {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ============ INSTALL BANNER ============ */
+.install-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  padding: 14px 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 200;
+  box-shadow: var(--shadow-elevated);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.install-text {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text-main);
+}
+
+.install-btn {
+  background: var(--accent);
+  color: var(--bg-deep);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.install-btn:hover { background: var(--accent-bright); }
+
+.install-close {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 4px 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.install-close:hover { color: var(--accent); }
+
+@media (min-width: 600px) {
+  .install-banner {
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    max-width: 400px;
+  }
+}
+
+/* Quando installato come app standalone */
+@media (display-mode: standalone) {
+  .install-banner { display: none; }
+}
