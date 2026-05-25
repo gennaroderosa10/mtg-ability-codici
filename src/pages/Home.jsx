@@ -35,11 +35,23 @@ function Home() {
         </Link>
       </section>
 
+      <section className="tokens-promo">
+        <div className="tokens-promo-content">
+          <h3 className="tokens-promo-title">⚔ Sezione Token</h3>
+          <p className="tokens-promo-text">
+            Esplora i token artefatto comuni, crea i tuoi token personalizzati e gestiscili
+            sul campo di battaglia virtuale durante le partite.
+          </p>
+          <Link to="/tokens" className="btn-primary tokens-promo-btn">Apri la sezione Token →</Link>
+        </div>
+      </section>
+
       <section className="legend">
         <h4 className="legend-title">Come usare l'app</h4>
         <ul className="legend-list">
           <li>Usa la barra di ricerca per trovare un'abilità in inglese o italiano</li>
           <li>Filtra per categoria nella barra di navigazione in alto</li>
+          <li>Nella sezione Token puoi crearti pedine personalizzate per le partite</li>
           <li>L'app funziona anche offline una volta installata</li>
         </ul>
       </section>

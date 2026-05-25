@@ -2,6 +2,11 @@ import { Routes, Route, NavLink } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import CategoryPage from './pages/CategoryPage.jsx'
 import AllAbilitiesPage from './pages/AllAbilitiesPage.jsx'
+import TokensHub from './pages/TokensHub.jsx'
+import CommonTokensPage from './pages/CommonTokensPage.jsx'
+import CreateTokenPage from './pages/CreateTokenPage.jsx'
+import PresetsPage from './pages/PresetsPage.jsx'
+import BattlefieldPage from './pages/BattlefieldPage.jsx'
 import OfflineIndicator from './components/OfflineIndicator.jsx'
 import InstallPrompt from './components/InstallPrompt.jsx'
 
@@ -28,6 +33,7 @@ function App() {
           <NavLink to="/category/keyword-action" className="nav-link">Keyword Actions</NavLink>
           <NavLink to="/category/ability-word" className="nav-link">Ability Words</NavLink>
           <NavLink to="/all" className="nav-link">Tutte</NavLink>
+          <NavLink to="/tokens" className="nav-link nav-link-special">Token</NavLink>
         </div>
       </nav>
 
@@ -37,6 +43,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/category/:cat" element={<CategoryPage />} />
             <Route path="/all" element={<AllAbilitiesPage />} />
+            <Route path="/tokens" element={<TokensHub />} />
+            <Route path="/tokens/common" element={<CommonTokensPage />} />
+            <Route path="/tokens/create" element={<CreateTokenPage />} />
+            <Route path="/tokens/presets" element={<PresetsPage />} />
+            <Route path="/tokens/battlefield" element={<BattlefieldPage />} />
           </Routes>
         </div>
       </main>

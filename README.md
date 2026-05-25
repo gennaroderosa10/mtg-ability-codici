@@ -1,23 +1,26 @@
 # MTG Ability
 
-App React + Vite con tutte le abilità di Magic: The Gathering (309 voci, 5 categorie ufficiali). Funziona offline come PWA.
+App React + Vite con:
+- **309 abilità di Magic: The Gathering** in 5 categorie ufficiali
+- **Sezione Token** con 4 sotto-pagine: Token Comuni, Crea Token, Preset, Campo di Battaglia
+- **Funziona offline** come PWA
 
 ## Struttura
 
 - `dist/` — **cartella pronta per il deploy**, già buildata
 - `src/` — sorgente React
 - `public/` — asset statici (icone PWA)
-- `netlify.toml` — config per Netlify (redirect SPA)
+- `netlify.toml` — config Netlify (redirect SPA)
 
-## Deploy rapido su Netlify (più semplice)
+## Deploy rapido su Netlify
 
 1. Apri [app.netlify.com/drop](https://app.netlify.com/drop)
 2. Trascina la cartella **`dist/`** sulla pagina
-3. Fatto! Ti dà l'URL pubblico
+3. Pronto!
 
-In alternativa, dal pannello del sito esistente: **Deploys → trascina `dist/`**.
+In alternativa: dashboard del tuo sito → **Deploys → trascina `dist/`**
 
-## Modificare e rebuildare (richiede Node.js)
+## Modificare il progetto
 
 ```bash
 npm install
@@ -25,18 +28,13 @@ npm run dev        # sviluppo locale su http://localhost:5173
 npm run build      # genera dist/ aggiornato
 ```
 
-Per aggiungere o correggere abilità: modifica i file in `src/data/`.
+## Sezione Token
 
-## Note PWA
-
-- Il service worker viene generato automaticamente da `vite-plugin-pwa`
-- Funziona offline al 100% dopo il primo caricamento
-- Per installare: apri l'URL su Chrome → menu → "Installa app"
-
-## Categorie
-
-- **Evergreen**: abilità presenti in (quasi) ogni set
-- **Deciduous**: usate frequentemente ma non in ogni set
-- **Keyword Abilities**: abilità chiave di set/blocchi specifici
-- **Keyword Actions**: azioni di gioco
-- **Ability Words**: parole-abilità in corsivo che raggruppano effetti
+- **Token Comuni**: Tesoro, Cibo, Indizio, Mappa, Sangue, Oro, Pietra del Potere, Incubatore, Ruolo, ecc.
+- **Crea Token**: form completo con nome, tipo, colori, P/T, abilità (dalle 309 in database)
+- **Preset**: token salvati per riutilizzo rapido
+- **Campo di Battaglia**:
+  - **Tap singolo** → TAP/STAP (ruota di 90°)
+  - **Long press** (mezzo secondo) → modal con dettagli e gestione segnalini +1/+1, -1/-1
+  - Raggruppamento automatico di token identici
+  - Persistenza via localStorage (sopravvive a chiusura app)
