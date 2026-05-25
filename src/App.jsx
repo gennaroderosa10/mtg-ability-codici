@@ -7,8 +7,10 @@ import CommonTokensPage from './pages/CommonTokensPage.jsx'
 import CreateTokenPage from './pages/CreateTokenPage.jsx'
 import PresetsPage from './pages/PresetsPage.jsx'
 import BattlefieldPage from './pages/BattlefieldPage.jsx'
+import LifeCounterPage from './pages/LifeCounterPage.jsx'
 import OfflineIndicator from './components/OfflineIndicator.jsx'
 import InstallPrompt from './components/InstallPrompt.jsx'
+import BottomNav from './components/BottomNav.jsx'
 
 function App() {
   return (
@@ -17,14 +19,14 @@ function App() {
         <div className="container">
           <NavLink to="/" className="brand">
             <span className="brand-mark">✦</span>
-            <span className="brand-text">MTG Ability</span>
+            <span className="brand-text">The Emeritus Glossary</span>
             <span className="brand-mark">✦</span>
           </NavLink>
-          <p className="brand-subtitle">Glossario completo delle abilità</p>
+          <p className="brand-subtitle">Glossario MTG · Token · Segnapunti</p>
         </div>
       </header>
 
-      <nav className="app-nav">
+      <nav className="app-nav app-nav-top">
         <div className="container nav-scroll">
           <NavLink to="/" end className="nav-link">Home</NavLink>
           <NavLink to="/category/evergreen" className="nav-link">Evergreen</NavLink>
@@ -34,6 +36,7 @@ function App() {
           <NavLink to="/category/ability-word" className="nav-link">Ability Words</NavLink>
           <NavLink to="/all" className="nav-link">Tutte</NavLink>
           <NavLink to="/tokens" className="nav-link nav-link-special">Token</NavLink>
+          <NavLink to="/segnapunti" className="nav-link nav-link-special">Segnapunti</NavLink>
         </div>
       </nav>
 
@@ -48,6 +51,7 @@ function App() {
             <Route path="/tokens/create" element={<CreateTokenPage />} />
             <Route path="/tokens/presets" element={<PresetsPage />} />
             <Route path="/tokens/battlefield" element={<BattlefieldPage />} />
+            <Route path="/segnapunti" element={<LifeCounterPage />} />
           </Routes>
         </div>
       </main>
@@ -55,10 +59,11 @@ function App() {
       <footer className="app-footer">
         <div className="container">
           <p>✦ ✦ ✦</p>
-          <p className="footer-text">MTG Ability · uso offline · dati non ufficiali</p>
+          <p className="footer-text">The Emeritus Glossary · funziona offline · dati non ufficiali</p>
         </div>
       </footer>
 
+      <BottomNav />
       <OfflineIndicator />
       <InstallPrompt />
     </div>

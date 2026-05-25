@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'MTG Ability',
-        short_name: 'MTG Ability',
-        description: 'Glossario completo delle abilità di Magic: The Gathering',
+        name: 'The Emeritus Glossary',
+        short_name: 'TEG',
+        description: 'Glossario completo MTG, generatore di token e segnapunti',
         theme_color: '#1a0f0a',
         background_color: '#1a0f0a',
         display: 'standalone',

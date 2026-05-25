@@ -35,24 +35,40 @@ function Home() {
         </Link>
       </section>
 
-      <section className="tokens-promo">
-        <div className="tokens-promo-content">
-          <h3 className="tokens-promo-title">⚔ Sezione Token</h3>
-          <p className="tokens-promo-text">
-            Esplora i token artefatto comuni, crea i tuoi token personalizzati e gestiscili
-            sul campo di battaglia virtuale durante le partite.
-          </p>
-          <Link to="/tokens" className="btn-primary tokens-promo-btn">Apri la sezione Token →</Link>
-        </div>
+      <section className="features-row">
+        <Link to="/tokens" className="feature-card">
+          <div className="feature-card-icon">⚔</div>
+          <div className="feature-card-body">
+            <h3 className="feature-card-title">Sezione Token</h3>
+            <p className="feature-card-desc">
+              Esplora i token artefatto comuni, crea i tuoi token personalizzati
+              e gestiscili sul campo di battaglia virtuale.
+            </p>
+          </div>
+          <span className="feature-card-arrow">→</span>
+        </Link>
+
+        <Link to="/segnapunti" className="feature-card feature-card-life">
+          <div className="feature-card-icon">❤</div>
+          <div className="feature-card-body">
+            <h3 className="feature-card-title">Segnapunti</h3>
+            <p className="feature-card-desc">
+              Conta i punti vita di 2-8 giocatori con tutti i contatori MTG:
+              veleno, energia, Commander damage, esperienza, l'Anello, monarca e altro.
+            </p>
+          </div>
+          <span className="feature-card-arrow">→</span>
+        </Link>
       </section>
 
       <section className="legend">
         <h4 className="legend-title">Come usare l'app</h4>
         <ul className="legend-list">
           <li>Usa la barra di ricerca per trovare un'abilità in inglese o italiano</li>
-          <li>Filtra per categoria nella barra di navigazione in alto</li>
-          <li>Nella sezione Token puoi crearti pedine personalizzate per le partite</li>
-          <li>L'app funziona anche offline una volta installata</li>
+          <li>Filtra per categoria nella navigazione</li>
+          <li>Nella sezione <strong>Token</strong> crei pedine personalizzate per le partite</li>
+          <li>Nel <strong>Segnapunti</strong> gestisci punti vita e tutti i contatori MTG</li>
+          <li>L'app funziona offline una volta installata</li>
         </ul>
       </section>
     </div>

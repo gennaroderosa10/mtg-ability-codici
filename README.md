@@ -1,40 +1,42 @@
-# MTG Ability
+# The Emeritus Glossary
 
 App React + Vite con:
 - **309 abilità di Magic: The Gathering** in 5 categorie ufficiali
-- **Sezione Token** con 4 sotto-pagine: Token Comuni, Crea Token, Preset, Campo di Battaglia
+- **Sezione Token**: Token Comuni, Crea Token, Preset, Campo di Battaglia
+- **Segnapunti completo**: 2-8 giocatori, vita/veleno/energia/Cmd damage/esperienza, dadi, tracker
 - **Funziona offline** come PWA
+- **Bottom Nav** su mobile/tablet con scorciatoie
 
 ## Struttura
 
-- `dist/` — **cartella pronta per il deploy**, già buildata
+- `dist/` — cartella pronta per il deploy
 - `src/` — sorgente React
 - `public/` — asset statici (icone PWA)
-- `netlify.toml` — config Netlify (redirect SPA)
+- `netlify.toml` — config Netlify
 
-## Deploy rapido su Netlify
-
-1. Apri [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Trascina la cartella **`dist/`** sulla pagina
-3. Pronto!
-
-In alternativa: dashboard del tuo sito → **Deploys → trascina `dist/`**
-
-## Modificare il progetto
+## Sviluppo
 
 ```bash
 npm install
-npm run dev        # sviluppo locale su http://localhost:5173
-npm run build      # genera dist/ aggiornato
+npm run dev        # http://localhost:5173
+npm run build      # genera dist/
 ```
 
-## Sezione Token
+## Funzionalità Segnapunti
 
-- **Token Comuni**: Tesoro, Cibo, Indizio, Mappa, Sangue, Oro, Pietra del Potere, Incubatore, Ruolo, ecc.
-- **Crea Token**: form completo con nome, tipo, colori, P/T, abilità (dalle 309 in database)
-- **Preset**: token salvati per riutilizzo rapido
-- **Campo di Battaglia**:
-  - **Tap singolo** → TAP/STAP (ruota di 90°)
-  - **Long press** (mezzo secondo) → modal con dettagli e gestione segnalini +1/+1, -1/-1
-  - Raggruppamento automatico di token identici
-  - Persistenza via localStorage (sopravvive a chiusura app)
+- Da 2 a 8 giocatori
+- Preset vita: 20 / 30 / 40 / Personalizzato
+- Layout dinamico (in partite a 2, il primo giocatore è capovolto)
+- Tap sinistra = -1, tap destra = +1
+- Long press = ±5
+- Cronologia cambi vita
+- Contatori: Veleno, Energia, Esperienza, Commander damage (per giocatore)
+- Tracker: l'Anello tenta, Monarca, Iniziativa, Città dei Benedetti, Giorno/Notte
+- Segnalini personalizzati liberi
+- Colori pannello selezionabili
+- Dadi d4/d6/d8/d10/d12/d20/d100 + lancio moneta
+- Persistenza completa: chiudi e riapri, ti chiede se riprendere la partita
+
+## Deploy
+
+Il sito si aggiorna automaticamente via Git push se collegato a Netlify.
