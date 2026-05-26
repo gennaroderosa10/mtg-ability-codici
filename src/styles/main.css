@@ -72,7 +72,7 @@ body {
 
 /* ============ HEADER ============ */
 .app-header {
-  padding: 28px 0 16px;
+  padding: 22px 16px 14px;
   text-align: center;
   position: relative;
 }
@@ -80,14 +80,18 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   text-decoration: none;
   color: var(--accent);
   font-family: 'Cinzel', serif;
   font-weight: 900;
-  font-size: clamp(1.8rem, 6vw, 2.8rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(1.1rem, 5.5vw, 2.6rem);
+  letter-spacing: 0.06em;
   text-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  line-height: 1.15;
 }
 
 .brand:hover, .brand:focus {
@@ -96,11 +100,34 @@ body {
 
 .brand-mark {
   color: var(--accent-dim);
-  font-size: 0.6em;
+  font-size: 0.55em;
+  flex-shrink: 0;
 }
 
 .brand-text {
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/* Su schermi molto stretti (Fold chiuso, telefoni piccoli) */
+@media (max-width: 380px) {
+  .brand {
+    gap: 8px;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+  }
+  .brand-mark {
+    font-size: 0.7em;
+  }
+}
+
+/* Su schermi tra mobile e tablet */
+@media (min-width: 381px) and (max-width: 600px) {
+  .brand {
+    font-size: 1.35rem;
+  }
 }
 
 .brand-subtitle {
@@ -109,6 +136,12 @@ body {
   font-style: italic;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .brand-subtitle {
+    font-size: 0.82rem;
+  }
 }
 
 /* ============ NAV ============ */
